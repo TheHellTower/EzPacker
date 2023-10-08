@@ -27,7 +27,6 @@ namespace EzPacker.Protections
                             string str = (string)Instruction.Operand;
                             if (str != ""/* && str.Length > 1*/)
                             {
-
                                 byte[] bytes = Encoding.UTF8.GetBytes(str);
 
                                 string newName = $"[{method.MDToken.ToString()}-THT]_{ii.ToString()}";
@@ -87,7 +86,6 @@ namespace EzPacker.Protections
                             cctor.Body.Instructions.Remove(instr);
                         }
                     }
-
 
                     method.Body.Instructions.SimplifyBranches();
                     method.Body.Instructions.OptimizeBranches();

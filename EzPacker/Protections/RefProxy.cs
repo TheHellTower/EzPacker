@@ -240,7 +240,6 @@ namespace EzPacker.Protections
                     }
                 }
             }
-
         }
     }
 }

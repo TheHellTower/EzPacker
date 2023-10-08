@@ -40,7 +40,6 @@ namespace EzPacker.Protections
 
                         firstBlock.Instructions.Add(OpCodes.Ldc_I4.ToInstruction(rnd.Next()));
                         firstBlock.Instructions.Add(OpCodes.Stloc.ToInstruction(newLocal));
-
                     }
 
                     emulator.Emulate(firstBlock);
@@ -52,7 +51,6 @@ namespace EzPacker.Protections
                         if (block.IsSafe && !block.IsBranched
                             && !block.IsException)
                         {
-
                             foreach (Local local in locals)
                             {
                                 Block updateValue = new Block();
@@ -110,7 +108,6 @@ namespace EzPacker.Protections
 
                                         Block outsideLoopBlock = new Block();
 
-
                                         updateValue.Instructions.Add(backUpNop);
 
                                         loopBlock.Instructions.Add(backNop);
@@ -130,7 +127,6 @@ namespace EzPacker.Protections
 
                                             currentLocValue = (int)emulator.GetLocalValue(local);
                                         }
-
 
                                         loopBlock.Copy(insideLoopBlock.Instructions);
                                         loopBlock.Instructions.Add(OpCodes.Br.ToInstruction(backNop));
@@ -154,7 +150,6 @@ namespace EzPacker.Protections
 
                                             array[i] = val;
                                             targets[i] = OpCodes.Ldc_I4.ToInstruction(val);
-
                                         }
 
                                         Block switchBlock = new Block();
@@ -299,7 +294,6 @@ namespace EzPacker.Protections
 
                                 block.Instructions.Insert(i + 1, new Instruction(OpCodes.Ldloc, rndLocal));
                                 block.Instructions.Insert(i + 2, new Instruction(reverse));
-
                             }
                         }
                         allBlocks.Add(block);
